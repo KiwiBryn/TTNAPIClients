@@ -1,0 +1,95 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTNAPIOpenAPIClient", "TTNAPIOpenAPIClient\TTNAPIOpenAPIClient.csproj", "{4F809786-1EBD-4575-BBE2-A0611C506E7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationAPIBasicClient", "ApplicationAPIBasicClient\ApplicationAPIBasicClient.csproj", "{D4F4AAD1-9AC5-4C23-B659-CC87CA217C51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndDeviceAPIBasicClient", "EndDeviceAPIBasicClient\EndDeviceAPIBasicClient.csproj", "{E9A5E798-BD35-4D8C-A954-A296B90160C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationAPIBasicPagingClient", "ApplicationAPIBasicPagingClient\ApplicationAPIBasicPagingClient.csproj", "{A5E62696-01E5-4312-AC5D-1668A6E346A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationAPIPagedAndFilteringClient", "ApplicationAPIPagedAndFilteringClient\ApplicationAPIPagedAndFilteringClient.csproj", "{62228D89-876E-48D6-B154-F46BA75457A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndDeviceAPIBasicPagingClient", "EndDeviceAPIBasicPagingClient\EndDeviceAPIBasicPagingClient.csproj", "{5D27478E-8914-46FD-9C86-8CF8AF3A01B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQTTDataAPIBasicClientV2", "MQTTDataAPIBasicClientV2\MQTTDataAPIBasicClientV2.csproj", "{DDF00D44-44F5-46C5-A56D-3E46054D9212}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQTTDataAPIBasicClientV3", "MQTTDataAPIBasicClientV3\MQTTDataAPIBasicClientV3.csproj", "{53AEC9F4-AF5D-4282-85AD-FB4B58CF078D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDeviceClientSetReceiveMessageHandlerSingle", "AzureDeviceClientSetReceiveMessageHandlerSingle\AzureDeviceClientSetReceiveMessageHandlerSingle.csproj", "{D647DB0A-9EC6-46C1-90A7-1C3D0D4D9622}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDeviceClientSetReceiveMessageHandlerMultiple", "AzureDeviceClientSetReceiveMessageHandlerMultiple\AzureDeviceClientSetReceiveMessageHandlerMultiple.csproj", "{E609BFF0-8314-4AFA-8610-9050F8CC0591}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SamplePayloads", "SamplePayloads", "{C3DD4B45-2266-41E7-86FD-C7DBCF7A00BC}"
+	ProjectSection(SolutionItems) = preProject
+		SamplePayloads\AnalogAndDigital.json = SamplePayloads\AnalogAndDigital.json
+		SamplePayloads\BarometricPressureRelativeHumidityTemperature.json = SamplePayloads\BarometricPressureRelativeHumidityTemperature.json
+		SamplePayloads\GPS.json = SamplePayloads\GPS.json
+		SamplePayloads\GPSAccelerometerGyrometer.json = SamplePayloads\GPSAccelerometerGyrometer.json
+		SamplePayloads\GPSNestingTest.json = SamplePayloads\GPSNestingTest.json
+		SamplePayloads\IMU.json = SamplePayloads\IMU.json
+		SamplePayloads\LuminosityPresence.json = SamplePayloads\LuminosityPresence.json
+		SamplePayloads\PayloadV1.json = SamplePayloads\PayloadV1.json
+		SamplePayloads\PayloadV2.json = SamplePayloads\PayloadV2.json
+		SamplePayloads\PayloadWithAllFieldTypes.json = SamplePayloads\PayloadWithAllFieldTypes.json
+		SamplePayloads\PayloadWithGPSField.json = SamplePayloads\PayloadWithGPSField.json
+		SamplePayloads\PayloadWithSimpleFieldTypes.json = SamplePayloads\PayloadWithSimpleFieldTypes.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F809786-1EBD-4575-BBE2-A0611C506E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F809786-1EBD-4575-BBE2-A0611C506E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F809786-1EBD-4575-BBE2-A0611C506E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F809786-1EBD-4575-BBE2-A0611C506E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F4AAD1-9AC5-4C23-B659-CC87CA217C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F4AAD1-9AC5-4C23-B659-CC87CA217C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F4AAD1-9AC5-4C23-B659-CC87CA217C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F4AAD1-9AC5-4C23-B659-CC87CA217C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A5E798-BD35-4D8C-A954-A296B90160C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A5E798-BD35-4D8C-A954-A296B90160C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A5E798-BD35-4D8C-A954-A296B90160C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A5E798-BD35-4D8C-A954-A296B90160C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E62696-01E5-4312-AC5D-1668A6E346A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E62696-01E5-4312-AC5D-1668A6E346A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E62696-01E5-4312-AC5D-1668A6E346A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E62696-01E5-4312-AC5D-1668A6E346A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62228D89-876E-48D6-B154-F46BA75457A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62228D89-876E-48D6-B154-F46BA75457A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62228D89-876E-48D6-B154-F46BA75457A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62228D89-876E-48D6-B154-F46BA75457A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D27478E-8914-46FD-9C86-8CF8AF3A01B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D27478E-8914-46FD-9C86-8CF8AF3A01B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D27478E-8914-46FD-9C86-8CF8AF3A01B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D27478E-8914-46FD-9C86-8CF8AF3A01B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF00D44-44F5-46C5-A56D-3E46054D9212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF00D44-44F5-46C5-A56D-3E46054D9212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF00D44-44F5-46C5-A56D-3E46054D9212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF00D44-44F5-46C5-A56D-3E46054D9212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AEC9F4-AF5D-4282-85AD-FB4B58CF078D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AEC9F4-AF5D-4282-85AD-FB4B58CF078D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AEC9F4-AF5D-4282-85AD-FB4B58CF078D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AEC9F4-AF5D-4282-85AD-FB4B58CF078D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D647DB0A-9EC6-46C1-90A7-1C3D0D4D9622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D647DB0A-9EC6-46C1-90A7-1C3D0D4D9622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D647DB0A-9EC6-46C1-90A7-1C3D0D4D9622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D647DB0A-9EC6-46C1-90A7-1C3D0D4D9622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FC19ED5-3D0C-451A-A80E-CB54D04DEC74}
+	EndGlobalSection
+EndGlobal
