@@ -338,3 +338,12 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/ApplicationAPIBasicClient/Properties/launchSettings.json
+/ApplicationAPIBasicPagingClient/Properties/launchSettings.json
+/ApplicationAPIPagedAndFilteringClient/Properties/launchSettings.json
+/AzureDeviceClientSetReceiveMessageHandlerMultiple/Properties/launchSettings.json
+/AzureDeviceClientSetReceiveMessageHandlerSingle/Properties/launchSettings.json
+/EndDeviceAPIBasicClient/Properties/launchSettings.json
+/EndDeviceAPIBasicPagingClient/Properties/launchSettings.json
+/MQTTDataAPIBasicClientV2/Properties/launchSettings.json
+/MQTTDataAPIBasicClientV3/Properties/launchSettings.json
