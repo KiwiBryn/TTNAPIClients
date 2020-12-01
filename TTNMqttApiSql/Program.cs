@@ -37,7 +37,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
    using MQTTnet.Client.Disconnecting;
    using MQTTnet.Client.Options;
    using MQTTnet.Client.Receiving;
- 
+
    using Dapper;
    using log4net;
    using log4net.Config;
@@ -52,7 +52,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
       private static IMqttClient mqttClient = null;
       private static IMqttClientOptions mqttOptions = null;
       private static IConfiguration configuration = null;
-      private static Dictionary<string, string> storedProcedureMappings;
+      private static Dictionary<string, string> storedProcedureMappings = null;
 
       static async Task Main(string[] args)
       {
@@ -74,15 +74,15 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 
             string mqttServer = configuration.GetSection("MqttServer").Value;
             string mqttPassword = configuration.GetSection("MqttPassword").Value;
+            string mqttClientId = configuration.GetSection("MqttClientId").Value;
             string applicationId = configuration.GetSection("ApplicationId").Value;
-            string clientId = configuration.GetSection("clientId").Value;
 
             log.InfoFormat($"MQTT Server:{mqttServer} ApplicationID:{applicationId}");
 
             mqttOptions = new MqttClientOptionsBuilder()
                .WithTcpServer(mqttServer)
                .WithCredentials(applicationId, mqttPassword)
-               .WithClientId(clientId)
+               .WithClientId(mqttClientId)
                .WithTls()
                .Build();
 
@@ -90,7 +90,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
             mqttClient.UseApplicationMessageReceivedHandler(new MqttApplicationMessageReceivedHandlerDelegate(e => MqttClient_ApplicationMessageReceived(e)));
 
             await mqttClient.ConnectAsync(mqttOptions);
-   
+
             string uplinkTopic = $"{applicationId}/devices/+/up";
             await mqttClient.SubscribeAsync(uplinkTopic, MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce);
 
@@ -102,7 +102,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
          }
          catch (Exception ex)
          {
-            log.Error( "Apllication startup failed", ex);
+            log.Error("Apllication startup failed", ex);
          }
       }
 
@@ -136,7 +136,10 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 
                foreach (string storedProcedure in storedProcedureMappings.Keys)
                {
-                  if (Enumerable.SequenceEqual(parameters.ParameterNames, storedProcedureMappings[storedProcedure].Split(',', StringSplitOptions.RemoveEmptyEntries)))
+                  if (Enumerable.SequenceEqual(
+                        parameters.ParameterNames, 
+                        storedProcedureMappings[storedProcedure].Split(',', StringSplitOptions.RemoveEmptyEntries),
+                        StringComparer.InvariantCultureIgnoreCase))
                   {
                      log.Info($"Payload fields processing with:{storedProcedure}");
 
@@ -188,7 +191,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
          }
       }
 
-      private static void EnumerateChildren(DynamicParameters parameters, JToken token, string prefix ="")
+      private static void EnumerateChildren(DynamicParameters parameters, JToken token, string prefix = "")
       {
          if (token is JProperty)
             if (token.First is JValue)
@@ -204,7 +207,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 
          foreach (JToken token2 in token.Children())
          {
-            EnumerateChildren(parameters,token2, prefix);
+            EnumerateChildren(parameters, token2, prefix);
          }
       }
 
