@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SamplePayloads", "SamplePay
 		SamplePayloads\PayloadWithSimpleFieldTypes.json = SamplePayloads\PayloadWithSimpleFieldTypes.json
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTNMqttApiSql", "TTNMqttApiSql\TTNMqttApiSql.csproj", "{8BDA16C8-29FC-4837-AEE6-A668524F45EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E609BFF0-8314-4AFA-8610-9050F8CC0591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDA16C8-29FC-4837-AEE6-A668524F45EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDA16C8-29FC-4837-AEE6-A668524F45EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDA16C8-29FC-4837-AEE6-A668524F45EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDA16C8-29FC-4837-AEE6-A668524F45EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -347,3 +347,4 @@ healthchecksdb
 /EndDeviceAPIBasicPagingClient/Properties/launchSettings.json
 /MQTTDataAPIBasicClientV2/Properties/launchSettings.json
 /MQTTDataAPIBasicClientV3/Properties/launchSettings.json
+/TTNMqttApiSql/AppSettings.json
