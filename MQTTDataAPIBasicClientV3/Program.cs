@@ -1,5 +1,4 @@
-﻿/*
-//---------------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------------
 // Copyright (c) August 2020, devMobile Software
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +16,6 @@
 // https://www.thethingsnetwork.org/docs/applications/mqtt/
 //
 //---------------------------------------------------------------------------------
-*/
 #if PAYLOAD_RAW && PAYLOAD_FIELDS
 #error Only one of PAYLOAD_RAW and PAYLOAD_FIELDS can be defined
 #endif
