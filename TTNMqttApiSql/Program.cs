@@ -1,5 +1,4 @@
-﻿/*
-//---------------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------------
 // Copyright (c) November 2020, devMobile Software
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,14 +16,12 @@
 // https://www.thethingsnetwork.org/docs/applications/mqtt/
 //
 //---------------------------------------------------------------------------------
-*/
 namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 {
    using System;
    using System.Collections.Generic;
    using System.Data;
    using System.Data.SqlClient;
-   using System.Diagnostics;
    using System.IO;
    using System.Linq;
    using System.Reflection;
@@ -77,7 +74,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
             string mqttClientId = configuration.GetSection("MqttClientId").Value;
             string applicationId = configuration.GetSection("ApplicationId").Value;
 
-            log.InfoFormat($"MQTT Server:{mqttServer} ApplicationID:{applicationId}");
+            log.InfoFormat("MQTTServer:{0} MQTTClientID:{1} ApplicationID:{2}", mqttServer, mqttClientId, applicationId);
 
             mqttOptions = new MqttClientOptionsBuilder()
                .WithTcpServer(mqttServer)
@@ -87,7 +84,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
                .Build();
 
             mqttClient.UseDisconnectedHandler(new MqttClientDisconnectedHandlerDelegate(e => MqttClient_Disconnected(e)));
-            mqttClient.UseApplicationMessageReceivedHandler(new MqttApplicationMessageReceivedHandlerDelegate(e => MqttClient_ApplicationMessageReceived(e)));
+            mqttClient.UseApplicationMessageReceivedHandler( new MqttApplicationMessageReceivedHandlerDelegate(e => MqttClient_ApplicationMessageReceived(e)));
 
             await mqttClient.ConnectAsync(mqttOptions);
 
@@ -110,7 +107,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
       {
          PayloadUplinkV2 payload;
 
-         log.InfoFormat($"Receive Start Topic:{e.ApplicationMessage.Topic}");
+         log.InfoFormat("Receive Start Topic:{0}", e.ApplicationMessage.Topic);
 
          string connectionString = configuration.GetSection("TTNDatabase").Value;
 
@@ -132,7 +129,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 
                EnumerateChildren(parameters, payload.PayloadFields);
 
-               log.Debug($"Parameters:{parameters.ParameterNames.Aggregate((i, j) => i + ',' + j)}");
+               log.DebugFormat("Parameters:{0}", parameters.ParameterNames.Aggregate((i, j) => i + ',' + j));
 
                foreach (string storedProcedure in storedProcedureMappings.Keys)
                {
@@ -141,7 +138,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
                         storedProcedureMappings[storedProcedure].Split(',', StringSplitOptions.RemoveEmptyEntries),
                         StringComparer.InvariantCultureIgnoreCase))
                   {
-                     log.Info($"Payload fields processing with:{storedProcedure}");
+                     log.InfoFormat("Payload fields processing with:{0}", storedProcedure);
 
                      using (SqlConnection db = new SqlConnection(connectionString))
                      {
@@ -164,7 +161,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
                {
                   if (string.Compare(storedProcedureMappings[storedProcedure], "payload_raw", true) == 0)
                   {
-                     log.Info($"Payload raw processing with:{storedProcedure}");
+                     log.InfoFormat("Payload raw processing with:{0}", storedProcedure);
 
                      using (SqlConnection db = new SqlConnection(connectionString))
                      {
@@ -213,7 +210,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
 
       private static async void MqttClient_Disconnected(MqttClientDisconnectedEventArgs e)
       {
-         Debug.WriteLine($"Disconnected {e.ReasonCode}");
+         log.InfoFormat("Disconnected:{0}",e.ReasonCode);
          await Task.Delay(TimeSpan.FromSeconds(5));
 
          try
@@ -222,7 +219,7 @@ namespace devMobile.TheThingsNetwork.TTNMqttApiSql
          }
          catch (Exception ex)
          {
-            Debug.WriteLine("Reconnect failed {0}", ex.Message);
+            log.ErrorFormat("Reconnect failed", ex);
          }
       }
    }
